@@ -6,7 +6,7 @@ machine:
 
 dependencies:
   override:
-    - mvn install -B -pl es-api,common,logback -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+    - mvn install -B -pl es-api-1.2,common,logback -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
   post:
     # elasticsearch
