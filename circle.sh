@@ -75,7 +75,7 @@ case "$1" in
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#reset > $CIRCLE_ARTIFACTS/core-reset.log
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#resetEventLog > $CIRCLE_ARTIFACTS/core-resetEventLog.log
 
-        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/%regex[[http|model|odata]]/** > $CIRCLE_ARTIFACTS/core-site.log
+        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/\%regex\[\[http\|model\|odata\]\]/** > $CIRCLE_ARTIFACTS/core-site.log
 
         ;;
 
@@ -88,7 +88,7 @@ case "$1" in
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#reset > $CIRCLE_ARTIFACTS/core-reset.log
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#resetEventLog > $CIRCLE_ARTIFACTS/core-resetEventLog.log
 
-        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/%regex[[rs|utils|webcontainer]]/** > $CIRCLE_ARTIFACTS/core-site.log
+        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/\%regex\[\[rs\|utils\|webcontainer\]\]/** > $CIRCLE_ARTIFACTS/core-site.log
 
         ;;
 
