@@ -75,19 +75,22 @@ case "$1" in
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#reset > $CIRCLE_ARTIFACTS/core-reset.log
         mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#resetEventLog > $CIRCLE_ARTIFACTS/core-resetEventLog.log
 
-        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/** > $CIRCLE_ARTIFACTS/core-site.log
+        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/%regex[http|model|odata]/** > $CIRCLE_ARTIFACTS/core-site.log
 
         ;;
 
       3)
-#        # run core that included in com.fujitsu.dc.test.jersey.box.odatacol
-#        setupForCoreTest
-#
-#        # exclude test
-#        echo "com.fujitsu.dc.core.*" >> .test-excludes
-#        echo "com.fujitsu.dc.test.*" >> .test-excludes
-#
-#        mvn site -B -pl core -Ddependency.locations.enabled=false > $CIRCLE_ARTIFACTS/core-site.log
+        # run core that included in com.fujitsu.dc.test except odatacol
+        # copy configuration file for CI environment
+        cp -p core/src/test/resources/ci/dc-config.properties core/src/test/resources/dc-config.properties
+
+        # regist data for test
+        mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#reset > $CIRCLE_ARTIFACTS/core-reset.log
+        mvn test -B -pl core -Dtest=com.fujitsu.dc.test.setup.Setup#resetEventLog > $CIRCLE_ARTIFACTS/core-resetEventLog.log
+
+        mvn site -B -pl core -Ddependency.locations.enabled=false -Dsurefire.exclude.pattern=com/fujitsu/dc/core/%regex[rs|utils|webcontainer]/** > $CIRCLE_ARTIFACTS/core-site.log
+
+        ;;
 
         ;;
 
