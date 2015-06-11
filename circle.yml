@@ -4,7 +4,7 @@ machine:
   pre:
     - /bin/sh io/circle.sh pre_machine
   environment:
-    MAVEN_OPTS: -Xmx1024M -Xss128M -XX:MaxPermSize=1024M -XX:+CMSClassUnloadingEnabled
+    MAVEN_OPTS: -Xmx1024M -Xss128M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled
 
 dependencies:
   override:
