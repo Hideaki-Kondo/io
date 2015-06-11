@@ -92,8 +92,6 @@ case "$1" in
 
         ;;
 
-        ;;
-
     esac
 
     # save result of site
