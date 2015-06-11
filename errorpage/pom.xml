@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fujitsu.dc</groupId>
 	<artifactId>dc1-custom</artifactId>
-	<version>1.3.22</version>
+	<version>1.3.22-SNAPSHOT</version>
 	<name>dc1-custom</name>
 	<licenses>
 		<license>
@@ -83,7 +83,6 @@
 					<excludes>
 						<exclude>.checkstyle</exclude>
 						<exclude>checkstyle.header</exclude>
-						<exclude>checkstyle_maven.properties</exclude>
 						<exclude>checkstyle-suppressions.xml</exclude>
 						<exclude>dc-checks.xml</exclude>
 						<exclude>findbugs-exclude.xml</exclude>

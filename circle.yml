@@ -2,11 +2,11 @@ machine:
   timezone:
     Asia/Tokyo
   environment:
-    MAVEN_OPTS: -Xms256m -Xmx1024m -XX:MaxPermSize=512m -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xloggc:artifacts/gc.log -XX:-UseGCOverheadLimit
+    MAVEN_OPTS: -Xms256m -Xmx2048m -XX:MaxPermSize=1024m -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xloggc:artifacts/gc.log -XX:-UseGCOverheadLimit
 
 dependencies:
   override:
-    - mvn install -B -pl es-api-1.2,common,logback -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+    - mvn install -B -pl es-api,common,logback -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
   post:
     # elasticsearch
@@ -53,4 +53,3 @@ test:
 general:
   artifacts:
     - artifacts
-
