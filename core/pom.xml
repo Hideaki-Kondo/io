@@ -18,7 +18,7 @@
 		<final.name>dc1-core</final.name>
 				<esapi.version>1_2</esapi.version>
 				<java.version>1.7</java.version>
-				<jvm.option>-Xms512m -Xmx1240m -XX:MaxPermSize=512m
+				<jvm.option>-Xmx1024m -XX:MaxPermSize=256m
 					-XX:-UseSplitVerifier</jvm.option>
 				<logback.version>1.0.12</logback.version>
 				<slf4j.version>1.7.4</slf4j.version>
@@ -311,6 +311,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.8.1</version>
 				<configuration>
+					<reuseForks>false</reuseForks>
+					<forkCount>1</forkCount>
 					<argLine>${jvm.option}</argLine>
 					<excludes>
 						<exclude>**/jersey/box/ServiceRelayTest.java</exclude>
