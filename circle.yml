@@ -5,7 +5,7 @@ machine:
     - /bin/sh io/circle.sh pre_machine
   environment:
     MAVEN_OPTS: -Xmx1024M -Xss128M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled
-    ES_JAVA_OPTS: -Xmx512M -Xss512M
+    ES_HEAP_SIZE: 512m
 
 dependencies:
   override:
